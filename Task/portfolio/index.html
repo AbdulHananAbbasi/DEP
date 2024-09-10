@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Background and Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Full viewport height */
+            background-image: url('background.jpg'); /* Replace with your background image path */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* No repeat for background image */
+            color: #fff; /* Text color */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for navbar */
+            color: #fff;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand img {
+            max-width: 40px; /* Logo image size */
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 2rem;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .portfolio h2 {
+            margin-bottom: 2rem;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .portfolio-item {
+            width: calc(33.333% - 1rem); /* Three columns */
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            color: #333;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05); /* Hover effect */
+        }
+
+        .portfolio-item h3 {
+            margin: 0;
+            padding: 1rem;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0;
+                width: 100%;
+                text-align: left;
+            }
+
+            .portfolio-item {
+                width: 100%; /* Stack items on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="brand">
+            
+            <span>My Site</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <h2>Welcome To Website</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="../project 1.avif" alt="Project 1"> <!-- Replace with your image path -->
+                <h3>Items</h3>
+            </div>
+            <div class="portfolio-item">
+                <img src="../p2.avif" alt=""> <!-- Replace with your image path -->
+                <h3>Laptop</h3>
+            </div>
+            <div class="portfolio-item">
+                <img src="../p3.avif" alt="Project 3"> <!-- Replace with your image path -->
+                <h3>Scissors</h3>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
