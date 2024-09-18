@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Website with UI Components</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 1rem;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-left: 1rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav-link.active {
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: url('bath.webp') no-repeat center center;
+      background-size: cover;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #000;
+      
+    }
+    .hero-section p{
+        color: #000;
+    }
+
+    /* Carousel styles */
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      height: 50%;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      height: 600px;
+    }
+
+    .carousel img {
+      width: 100%;
+      object-fit: contain;
+      aspect-ratio: 3/2;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .carousel-control-prev {
+      left: 0;
+    }
+
+    .carousel-control-next {
+      right: 0;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-dialog {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .modal-header, .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      margin: 1rem 0;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #6c757d;
+      color: #fff;
+    }
+
+    .btn-close {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Accordion styles */
+    .accordion {
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .accordion-button {
+      background: #f8f9fa;
+      border: none;
+      padding: 1rem;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .accordion-button:focus {
+      outline: none;
+    }
+
+    .accordion-collapse {
+      display: none;
+    }
+
+    .accordion-collapse.show {
+      display: block;
+    }
+
+    .accordion-body {
+      padding: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Responsive Navbar -->
+<nav class="navbar">
+  <a class="navbar-brand" href="#">Kit Store</a>
+  <ul class="navbar-nav">
+    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div>
+    <h1>Welcome to our store</h1>
+    <p>Explore the latest collections and trends in fashion</p>
+  </div>
+</section>
+
+<!-- Content Section -->
+<div class="container mt-8">
+  <div class="row">
+
+    <!-- Slider (Carousel) -->
+    <div class="col-6">
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="helmet 1.jpg" alt="Image 1">
+          </div>
+          <div class="carousel-item">
+            <img src="uniform.jpg" alt="Image 2">
+          </div>
+          <div class="carousel-item">
+            <img src="images.jpeg" alt="Image 3">
+          </div>
+          <div class="carousel-item">
+            <img src="bat.jpg" alt="Image 4">
+          </div>
+          <div class="carousel-item">
+            <img src="ball.jpeg" alt="Image 5">
+          </div>
+        </div>
+        <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+      </div>
+    </div>
+
+    <!-- Modal Trigger Button -->
+    <div class="col-md-6 mb-4">
+      <h4>Interactive Modal</h4>
+      <button type="button" class="btn btn-primary" onclick="openModal()">Open Product</button>
+    </div>
+
+    <!-- Accordion -->
+    <div class="col-md-12 mb-4">
+      <h4>Accordion Example</h4>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingOne">
+            <button class="accordion-button" onclick="toggleAccordion('collapseOne')">
+              Product Details
+            </button>
+          </div>
+          <div id="collapseOne" class="accordion-collapse">
+            <div class="accordion-body">
+              Reviews
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingTwo">
+            <button class="accordion-button" onclick="toggleAccordion('collapseTwo')">
+              Shopping Information
+            </button>
+          </div>
+          <div id="collapseTwo" class="accordion-collapse">
+            <div class="accordion-body">
+              Price and Availability.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Product Information</h5>
+        <button type="button" class="btn-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        This modal provides additional information about a specific product. It includes details that enhance user experience.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Carousel JavaScript
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
+    slides.forEach((slide, i) => {
+      slide.style.transform = `translateX(-${currentSlide * 100}%)`;
+    });
+  }
+
+  function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+  }
+
+  // Modal JavaScript
+  function openModal() {
+    document.getElementById('exampleModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('exampleModal').style.display = 'none';
+  }
+
+  // Accordion JavaScript
+  function toggleAccordion(id) {
+    const collapse = document.getElementById(id);
+    collapse.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
